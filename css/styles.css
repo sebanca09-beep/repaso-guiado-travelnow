@@ -1,9 +1,18 @@
-:root {
-    --color-primario: #FF5A5F;
-    --color-oscuro: #222222;
-    --color-claro: #F7F7F7;
-    --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ :root {
+ --color-primario: #FF5A5F;
+ --color-oscuro: #222222;
+ --color-claro: #F7F7F7;
+
+ --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+ body {
+ background-color: var(--color-claro); /* El fondo usa la variable
+clara */
+ color: var(--color-oscuro); /* El texto usa la variable oscura */
+ transition: background-color 0.4s ease, color 0.4s ease; /* ESTO
+ES CLAVE: Crea una transición suave */
+ }
 
 * {
     margin: 0;
@@ -96,3 +105,36 @@
     border-radius: 5px;
     margin-bottom: 15px;
 }
+/* Estilos para el botón superior */
+ .btn-tema {
+ background-color: transparent;
+ border: 2px solid white;
+ color: white;
+ padding: 8px 15px;
+ border-radius: 20px;
+ cursor: pointer;
+ font-weight: bold;
+ transition: all 0.3s ease;
+ }
+
+
+ .btn-tema:hover {
+ background-color: white;
+ color: var(--color-oscuro);
+ }
+
+ /* =========================================
+ LA MAGIA DEL MODO OSCURO
+ ========================================= */
+ /* Cuando el <body> tenga esta clase, invertiremos las variables */
+ body.dark-theme {
+ --color-claro: #121212; /* El fondo se vuelve gris muy oscuro */
+ --color-oscuro: #E0E0E0; /* El texto se vuelve gris claro */
+ }
+
+ /* También necesitamos ajustar el fondo de las tarjetas para que no se
+queden blancas */
+ body.dark-theme .card {
+ background-color: #1E1E1E;
+ box-shadow: 0 4px 8px rgba(0,0,0,0.5); /* Sombra más oscura */
+ }
